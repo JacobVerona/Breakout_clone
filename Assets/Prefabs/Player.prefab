@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentPlayer: {fileID: 2147835488041839707}
   _clampValues: {x: -8, y: 8}
+  _inputBehaviour: {fileID: 0}
 --- !u!68 &5994153300480839758
 EdgeCollider2D:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 public class Platform : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class Platform : MonoBehaviour
     [SerializeField] private InputBehaviour _inputBehaviour;
 
     private float horizontalVelocity;
-
     public Player Player => _parentPlayer;
 
     public void Awake ()
