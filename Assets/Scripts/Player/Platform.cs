@@ -6,20 +6,24 @@ public class Platform : MonoBehaviour
 {
     [SerializeField] private Player _parentPlayer;
     [SerializeField] private Vector2 _clampValues = new Vector2(-8, 8);
-    private Camera _camera;
+    [SerializeField] private InputBehaviour _inputBehaviour;
+
+    private float horizontalVelocity;
 
     public Player Player => _parentPlayer;
 
     public void Awake ()
     {
-        _camera = Camera.main;
+        _inputBehaviour.OnMouseWorldPosition += OnGetInput;
+    }
+
+    public void OnGetInput (Vector2 input)
+    {
+        horizontalVelocity = input.x;
     }
 
     public void FixedUpdate ()
     {
-        var pos = Input.mousePosition;
-        var horizontalVelocity = _camera.ScreenToWorldPoint(pos).x;
-
         transform.position = new Vector2(Mathf.Clamp(horizontalVelocity, _clampValues.x, _clampValues.y), transform.position.y);
     }
 }
